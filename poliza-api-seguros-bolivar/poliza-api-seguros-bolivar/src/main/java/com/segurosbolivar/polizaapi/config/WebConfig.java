@@ -16,7 +16,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(apiKeyInterceptor)
-                // El mock del CORE queda fuera de la validacion de api-key
-                .excludePathPatterns("/core-mock/**");
+                // El mock del CORE y la documentacion de Swagger quedan fuera de la validacion de api-key
+                .excludePathPatterns(
+                        "/core-mock/**",
+                        "/swagger-ui.html",
+                        "/swagger-ui/**",
+                        "/v3/api-docs/**",
+                        "/webjars/**");
     }
 }
