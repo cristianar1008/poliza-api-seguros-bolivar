@@ -3,6 +3,7 @@ package com.segurosbolivar.polizaapi.config;
 import com.segurosbolivar.polizaapi.model.TipoDocumento;
 import com.segurosbolivar.polizaapi.repository.TipoDocumentoRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
  * aqui basta con revisar si el catalogo ya tiene datos.
  */
 @Component
+@Order(1) // debe correr antes que DemoDataSeeder, que necesita este catalogo ya sembrado
 public class TipoDocumentoSeeder implements CommandLineRunner {
 
     private final TipoDocumentoRepository tipoDocumentoRepository;
