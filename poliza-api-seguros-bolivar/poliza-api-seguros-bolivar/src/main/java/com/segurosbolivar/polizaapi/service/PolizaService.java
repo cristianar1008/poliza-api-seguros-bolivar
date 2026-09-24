@@ -4,6 +4,7 @@ import com.segurosbolivar.polizaapi.dto.PolizaRequest;
 import com.segurosbolivar.polizaapi.dto.RiesgoRequest;
 import com.segurosbolivar.polizaapi.exception.BusinessException;
 import com.segurosbolivar.polizaapi.model.*;
+import com.segurosbolivar.polizaapi.port.CoreNotificadorPort;
 import com.segurosbolivar.polizaapi.repository.EventoNotificacionRepository;
 import com.segurosbolivar.polizaapi.repository.PolizaRepository;
 import com.segurosbolivar.polizaapi.repository.RenovacionPolizaRepository;
@@ -24,7 +25,7 @@ public class PolizaService {
 
     private final PolizaRepository polizaRepository;
     private final BigDecimal ipc;
-    private final CoreIntegrationService coreIntegrationService;
+    private final CoreNotificadorPort coreIntegrationService;
     private final TerceroService terceroService;
     private final NotificacionService notificacionService;
     private final RenovacionPolizaRepository renovacionPolizaRepository;
@@ -32,7 +33,7 @@ public class PolizaService {
 
     public PolizaService(PolizaRepository polizaRepository,
                           @Value("${poliza.renovacion.ipc}") BigDecimal ipc,
-                          CoreIntegrationService coreIntegrationService,
+                          CoreNotificadorPort coreIntegrationService,
                           TerceroService terceroService,
                           NotificacionService notificacionService,
                           RenovacionPolizaRepository renovacionPolizaRepository,

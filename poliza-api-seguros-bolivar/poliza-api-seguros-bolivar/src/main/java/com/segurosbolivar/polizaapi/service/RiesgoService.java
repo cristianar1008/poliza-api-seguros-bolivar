@@ -2,6 +2,7 @@ package com.segurosbolivar.polizaapi.service;
 
 import com.segurosbolivar.polizaapi.model.Riesgo;
 import com.segurosbolivar.polizaapi.repository.RiesgoRepository;
+import com.segurosbolivar.polizaapi.port.CoreNotificadorPort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,9 +12,9 @@ import java.util.NoSuchElementException;
 public class RiesgoService {
 
     private final RiesgoRepository riesgoRepository;
-    private final CoreIntegrationService coreIntegrationService;
+    private final CoreNotificadorPort coreIntegrationService;
 
-    public RiesgoService(RiesgoRepository riesgoRepository, CoreIntegrationService coreIntegrationService) {
+    public RiesgoService(RiesgoRepository riesgoRepository, CoreNotificadorPort coreIntegrationService) {
         this.riesgoRepository = riesgoRepository;
         this.coreIntegrationService = coreIntegrationService;
     }

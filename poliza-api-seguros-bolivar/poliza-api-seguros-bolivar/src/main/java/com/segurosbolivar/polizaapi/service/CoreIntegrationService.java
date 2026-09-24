@@ -1,6 +1,7 @@
 package com.segurosbolivar.polizaapi.service;
 
 import com.segurosbolivar.polizaapi.dto.CoreEventoRequest;
+import com.segurosbolivar.polizaapi.port.CoreNotificadorPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +22,7 @@ import org.springframework.web.client.RestClient;
  * aqui a proposito, para no ampliar el alcance de esta prueba.
  */
 @Service
-public class CoreIntegrationService {
+public class CoreIntegrationService implements CoreNotificadorPort {
 
     private static final Logger log = LoggerFactory.getLogger(CoreIntegrationService.class);
 
@@ -34,6 +35,7 @@ public class CoreIntegrationService {
         this.coreMockUrl = coreMockUrl;
     }
 
+    @Override
     public void notificarEvento(String evento, Long polizaId) {
         try {
             restClient.post()
