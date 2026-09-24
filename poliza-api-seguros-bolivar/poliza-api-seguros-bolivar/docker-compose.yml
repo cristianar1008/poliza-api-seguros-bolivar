@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: poliza-api-db
+    environment:
+      POSTGRES_DB: polizasdb
+      POSTGRES_USER: poliza_user
+      POSTGRES_PASSWORD: poliza_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - poliza_pgdata:/var/lib/postgresql/data
+
+volumes:
+  poliza_pgdata:
